@@ -47,7 +47,7 @@ print(xt, type = "html")
 ```
 
 <!-- html table generated in R 3.2.0 by xtable 1.7-4 package -->
-<!-- Thu Jun 11 23:41:27 2015 -->
+<!-- Sat Jun 27 22:05:44 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> steps </th> <th> date </th> <th> interval </th>  </tr>
   <tr> <td align="right"> 1 </td> <td align="right">  </td> <td> 2012-10-01 </td> <td align="right">   0 </td> </tr>
@@ -231,6 +231,9 @@ activity_data_fixed$period <- 'weekday'
 # replace by `weekend` for Sat and Sun
 activity_data_fixed[activity_data_fixed$weekday == 'Saturday' | activity_data_fixed$weekday == 'Sunday',]$period <- 'weekend'
 activity_data_fixed$period <- as.factor(activity_data_fixed$period)
+
+activity_data_fixed <- activity_data_fixed %>% group_by(period, interval)
+activity_data_fixed <- activity_data_fixed %>% summarise_each(funs(mean(., na.rm = TRUE)), steps)
 ```
 
 Then we plot using lattice package as time series both weekend and weekdays number of steps vs. interval. Once can notice that weekdays have more early steps while pattern of weekends are shifted to later intervals.
