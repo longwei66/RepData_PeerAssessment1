@@ -47,7 +47,7 @@ print(xt, type = "html")
 ```
 
 <!-- html table generated in R 3.2.0 by xtable 1.7-4 package -->
-<!-- Sat Jun 27 22:05:44 2015 -->
+<!-- Sat Jun 27 22:24:03 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> steps </th> <th> date </th> <th> interval </th>  </tr>
   <tr> <td align="right"> 1 </td> <td align="right">  </td> <td> 2012-10-01 </td> <td align="right">   0 </td> </tr>
